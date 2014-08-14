@@ -5,11 +5,20 @@ THIS IS WORK IN PROGRESS!
 (This work by Konrad Förstner is licensed under a Creative Commons
 Attribution 4.0 International License.)
 
-## The basic atonomy of a command line call
+## Motivation and Background
+
+Dating back to the early 1970s.
+
+* Possible to deal with large data sets
+* Avoid repetitive work
+* Reproducible
+* Geeky
+
+## The basic anatonomy of a command line call
 
 * program name + parameters + attributes
 
-## The most imporatant tool
+## The most important tool
 
 * RTFM
 * man
@@ -62,4 +71,5 @@ Attribution 4.0 International License.)
 ## Examples analysis
 
 * wget
-* 
+
+    wget ftp://ftp.ncbi.nih.gov/genbank/genomes/Bacteria/Campylobacter_jejuni_81116_uid17953/CP000814.faa
