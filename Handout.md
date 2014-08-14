@@ -68,7 +68,7 @@ Dating back to the early 1970s.
 
 ## Connecting tools - pipes
 
-* Philosophy - build small tools that do one thing perferct - then connect them.
+* Philosophy - build small tools that do one thing well - then connect them.
 
 ## Examples analysis
 
