@@ -32,7 +32,8 @@ Dating back to the early 1970s.
 * mkdir
 * type
 * ~/ 
-* relative vs. absolute path
+* Relative vs. absolute path
+* Globbing
 
 ## Manipulating files and folder
 
@@ -67,9 +68,34 @@ Dating back to the early 1970s.
 
 ## Connecting tools - pipes
 
+* Philosophy - build small tools that do one thing perferct - then connect them.
 
 ## Examples analysis
 
-* wget
+### XXX
 
     wget ftp://ftp.ncbi.nih.gov/genbank/genomes/Bacteria/Campylobacter_jejuni_81116_uid17953/CP000814.faa
+    wget ftp://ftp.ncbi.nih.gov/genomes/Bacteria/Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/NC_016810.gff
+
+### Calculate the GC content of a genome
+
+   wget ftp://ftp.ncbi.nih.gov/genomes/Bacteria/Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/NC_016810.fna
+
+   grep -v ">" NC_016810.fna | grep -o "A" | wc -l
+
+   grep -v ">" NC_016810.fna | grep -o "C" | wc -l
+
+   grep -v ">" NC_016810.fna | grep -o "G" | wc -l
+
+   grep -v ">" NC_016810.fna | grep -o "T" | wc -l
+
+or 
+
+   grep -v ">" NC_016810.fna | grep -Po "A|T" | wc -l
+
+   grep -v ">" NC_016810.fna | grep -Po "C|G" | wc -l
+
+   echo "scale=5; 2332503/(2332503+2545509)*100" | bc
+
+### Run RNAfold
+
