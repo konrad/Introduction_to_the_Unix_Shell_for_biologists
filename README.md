@@ -1,4 +1,4 @@
-# Introduction to the Unix Shell for biologists
+## Introduction to the Unix Shell for biologists
 
-The basic of how to use the Unix Shell as an enviroment to analyse
-with biological data.
+The basics of how to use the Unix Shell as an enviroment to analyse
+biological data.
