@@ -2,8 +2,9 @@
 
 THIS IS WORK IN PROGRESS!
 
-(This work by Konrad Förstner is licensed under a Creative Commons
-Attribution 4.0 International License.)
+(This work by Konrad Förstner is licensed under a [Creative Commons
+Attribution 4.0 International
+License](https://creativecommons.org/licenses/by/4.0/).)
 
 ## Motivation and Background
 
@@ -20,7 +21,7 @@ Dating back to the early 1970s.
 
 ## The most important tool
 
-* RTFM
+* Please, [RTFM](https://en.wikipedia.org/wiki/RTFM)
 * man
 * apropos
 
