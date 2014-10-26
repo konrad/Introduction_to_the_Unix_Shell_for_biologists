@@ -2,20 +2,26 @@
 
 THIS IS WORK IN PROGRESS!
 
-(This work by Konrad Förstner is licensed under a [Creative Commons
-Attribution 4.0 International
-License](https://creativecommons.org/licenses/by/4.0/).)
+![CC-BY](by.png)\
 
+This work by Konrad Förstner is licensed under a [Creative Commons
+Attribution 4.0 International
+License](https://creativecommons.org/licenses/by/4.0/).
+
+The source code can be found at:
+
+[https://github.com/konrad/Introduction_to_the_Unix_Shell_for_biologists/
+	](https://github.com/konrad/Introduction_to_the_Unix_Shell_for_biologists/)
 
 ## Motivation and Background
 
 In this course you will learn the basics of how to use the Unix
-shell. Unix is a class of operatin systems with many different flavous
-including well known ones like GNU/Linux and the BSDs. The development
-of Unix and its shell (aks command line interface) dates back to the
-late 1960s. Still, the concepts and design are very powerful and with
-the increasing amout of data sets many tool are discovered by
-scientists.
+Shell. Unix is a class of operating systems with many different
+flavors including well known ones like GNU/Linux and the BSDs. The
+development of Unix and its shell (also known as command line
+interface) dates back to the late 1960s. Still, the concepts and
+design are very powerful and with the increasing amout of data sets
+many tool are discovered by scientists.
 
 In the command line you can easily combine different tools into
 powerful pipelines, avoid repetitive work and make your easily
@@ -23,16 +29,16 @@ workflow reproducible. Additionally, its very geeky.
 
 ## Setting up the environment
 
-During this courese all of you are working on Ubuntu version 14.10
+During this course all of you are working on Ubuntu version 14.10
 which is a widely used GNU/Linux distribution. The systems run on a
 bootable USB stick. The stick offers you to run live system or to
 install Ubuntu on your computer. We will run it the live mode which
 will not change the system installed on you PC. After shutting the
 system down and removing the stick everything on the computer will be
-as before. To get test data and additional program click on
-the Dash button on the top left on your screen and type
-"terminal". You will learn later what you are doing but for the moment
-just type the commands into the command line interface:
+as before. To get test data and additional program click on the Dash
+button on the top left on your screen and type "terminal". You will
+learn later what you are doing but for the moment just type the
+commands into the command line interface:
 
     wget http://bit.ly/imibunix2014
     tar xfz unix_course_files.tar.gz
@@ -307,11 +313,11 @@ Topics:
 * editors `vi`, `emacs`, `nano`, `gedit`
 
 Until now we did not care about the content of the files. This will
-change now. Please go into the folder `unix_course_files/example_files/`:
+change now. Please go into the folder `unix_course_files`:
 
-    $ cd unix_course_files/example_files
+    $ cd unix_course_files
 
-There should be some file waiting for you. To read the content with
+There should be some files waiting for you. To read the content with
 the possibility to scroll around we need a pager program. Most Unix
 systems offer the program `more` and `less`. We will use the later one
 here. Let's open the file "origin_of_species.txt"
@@ -325,7 +331,7 @@ represent an interactive program but sometime (you have later some
 examples) you just want to have the content of a file returned to the
 user. The command `cat` does that for one or more files. Let us use it
 to see what is in the example file `two_lines.txt`. Assuming you are
-in the folder `unix_course_files/example_files/` you can call
+in the folder `unix_course_files/` you can call
 
     $ cat two_lines.txt
 
@@ -411,7 +417,7 @@ statitics about the number of character, words and lines use the
 command `wc`. Let us count the number of line in
 `origin_of_species.txt`:
 
-    $ wc -l unix_course_files/example_files/origin_of_species.txt
+    $ wc -l unix_course_files/origin_of_species.txt
 
 You can use the command `sort` to sort a file alpha-numerically. Call
 the commands
@@ -450,7 +456,7 @@ program `<` is used. Have quick look at the content of the file
 
 We now want to replace the `T`s there with `U`s. For this we call:
    
-   $ tr T U < unix_course_files/example_files/DNA.txt
+   $ tr T U < unix_course_files/DNA.txt
 
 ## Connecting tools
 
