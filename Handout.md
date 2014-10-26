@@ -217,7 +217,7 @@ do not get a message this usually means everything went fine. If you
 call the above `mkdir` command again you should get an error message
 like this:
 
-    mkdir: cannot create directory ‘my_first_folder’: File exists
+    $ mkdir: cannot create directory ‘my_first_folder’: File exists
 
 So if a command does not complain you can usually assume everything
 went as requested.
@@ -382,7 +382,21 @@ the tools with the file `origin_of_species.txt`:
     $ head origin_of_species.txt
     $ tail origin_of_species.txt
 
-## 
+To modify a file you can use programs called editors.  Classis Unix
+environemnt editor are [vi](https://en.wikipedia.org/wiki/) (and
+derivatives like
+[vim](https://en.wikipedia.org/wiki/Vim_%28text_editor%29)) or
+[Emacs](https://www.gnu.org/software/emacs/). While they are very
+powerful they have a steep learning curve. Please make yourself
+familiar with them yourself after the course. For the time being you
+can use the graphical userinterface editor `gedit`. To open `gedit`
+with the file `two_lines.txt` call
+
+    $ gedit
+
+You can edit file with it and click the `Save` button.
+
+## Working with the file content
 
 * `wc`
 * `sort`
@@ -391,17 +405,67 @@ the tools with the file `origin_of_species.txt`:
 * `uniq`
 * `tr`
 
-## File archives and compression
+There are several tools that let you manipulate the content of a plain
+text file or return information about it. If you want for example some
+statitics about the number of character, words and lines use the
+command `wc`. Let us count the number of line in
+`origin_of_species.txt`:
 
-* `tar`
-* `gzip`/`gunzip`
-* `bzip2`/`bunzip2`
-* `zcat`
+    $ wc -l unix_course_files/example_files/origin_of_species.txt
 
-## Connecting tools - pipes
+You can use the command `sort` to sort a file alpha-numerically. Call
+the commands
 
-* Philosophy - build small tools that do one thing well - then connect them.
+    $ sort unsorted_numbers.txt
+    $ sort -n unsorted_numbers.txt
+    $ sort -rn unsorted_numbers.txt
 
+and try understand the different output.
+
+With the tool `grep` you can extract lines that match a given
+pattern. For instance, if you want to find all lines in
+`origin_of_species.txt` that contain the word `species` call
+
+    $ grep species origin_of_species.txt
+
+As you can see we are only get the lines that contain `species` but
+not the one that contain `Species`. To make the search
+case-insensitive use the parameter `-i`.
+
+    $ grep -i species origin_of_species.txt
+
+If you are only interested in the number of lines that match pattern
+use `-c`:
+
+    $ grep -ic species origin_of_species.txt
+
+The file `tr` (translate) exchanges one character by another. We
+introduced the standard output above. There we used the standard
+input. `tr` reads from the standard input and perform the
+replacement. To direct the content of a file as standard input into a
+program `<` is used. Have quick look at the content of the file
+`DNA.txt`.
+
+   $ cat DNA.txt
+
+We now want to replace the `T`s there with `U`s. For this we call:
+   
+   $ tr T U < unix_course_files/example_files/DNA.txt
+
+## Connecting tools
+
+Another piece of the Unix philosophy is to build small tools that do
+once thing optimally and use the standard input and standard
+output. The real power of Unix builds on the capability to easily
+connect tools. For this so called pipes are used. To use the standard
+output of one file as standard input of another tool the vertical bar
+"|" is used. For example, extract the first 1000 lines from
+`origin_of_species.txt`, search for line that contain `species`, then
+search in those line that contain `wild` and finally replace the `w`s
+by `m` call:
+
+   $ head -n 1000 origin_of_species.txt  | grep species | grep wild | tr "w" "m"
+   
 ## Examples analysis
 
 ### XXX
@@ -431,3 +495,17 @@ or
 
 ### Run RNAfold
 
+
+### What's next
+
+* Editors (as mentioned above)
+* ssh 
+* how to install programs (apt-get, make)
+* sed
+* du
+* cut paste
+
+* `tar`
+* `gzip`/`gunzip`
+* `bzip2`/`bunzip2`
+* `zcat`
