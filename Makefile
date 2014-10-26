@@ -1,9 +1,9 @@
 pdf:
-	pandoc -o Handout.pdf --variable monofont="Bitstream Vera Sans Mono" --variable mainfont=Georgia Handout.md
+	pandoc -o Handout.pdf --variable monofont="Bitstream Vera Sans Mono" \
+          --variable mainfont=Georgia Handout.md
 
-example_files:
+example_files: pdf
 	mkdir -p unix_course_files
-	mkdir -p unix_course_files/bin
 	echo "This file\ncontains three\nlines." \
 	  > unix_course_files/three_lines.txt
 	echo "This file\ncontains two lines." \
