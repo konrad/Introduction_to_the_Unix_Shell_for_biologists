@@ -464,18 +464,65 @@ output of one file as standard input of another tool the vertical bar
 search in those line that contain `wild` and finally replace the `w`s
 by `m` call:
 
-   $ head -n 1000 origin_of_species.txt  | grep species | grep wild | tr "w" "m"
+    $ head -n 1000 origin_of_species.txt | grep species \ 
+      | grep wild | tr "w" "m"
    
 ## Examples analysis
 
-### XXX
+Equipped with useful programs and basic understanding how to combine
+them, we will no apply them perform some analysis of real biological data
 
-    wget ftp://ftp.ncbi.nih.gov/genbank/genomes/Bacteria/Campylobacter_jejuni_81116_uid17953/CP000814.faa
-    wget ftp://ftp.ncbi.nih.gov/genomes/Bacteria/Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/NC_016810.gff
+### Get some data
+
+You have used the tool `wget` above to get the example files. It is
+very useful especially if you want to retrieve large data set. We
+download the fasta file of *Salmonella* Thyphimuirum SL1344's
+chromosome by calling (the URL is here split in three parts it, please
+write in one line in the shell and remove the `\`)
+
+    wget ftp://ftp.ncbi.nih.gov/genomes/Bacteria/\
+         Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
+         NC_016810.fna
+
+Additionally we download the annotation in GFF format of the same organism:
+
+    wget ftp://ftp.ncbi.nih.gov/genomes/Bacteria/\
+         Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
+         NC_016810.gff
+
+### Counting the number of features
+
+Use `less` to have a look at `NC_016810.gff`. It is a tabular
+separated file. The first 5 lines start with `#` and are called
+header. Then lines with 9 columns follow. The third column contains
+the type of the entry (gene, CDS, tRNA, rRNA, etc). If we want to know
+the numbers of tRNA entries we could try to use grep for it and use
+`-c` to count the number of hit line.
+
+    $ grep -c tRNA NC_016810.gff
+
+This leads to a suspiciously large number. The issue is that the
+string `tRNA` also occurs in the attribution column (the 9th
+column). We just want matches in the third column. We can combine `cut`
+and `grep` to achieve this. 
+
+    $ cut -f 3 NC_016810.gff | grep -c tRNA
+
+To the number of entries for all other feature we could just replace
+the `tRNA`. But we can also get the number for all of them:
+
+    $ grep -v "#" NC_016810.gff | cut -f 3 | sort | uniq -c
+
+Try to understand what we did here. You can use a similar call to
+count the number genes on the plus and minus strand:
+
+    $ cut -f 3,7 NC_016810.gff | grep gene | sort | uniq -c
 
 ### Calculate the GC content of a genome
 
-    wget ftp://ftp.ncbi.nih.gov/genomes/Bacteria/Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/NC_016810.fna
+Let us assume the GC content of the genome is not known to us. We can
+use a handful of command to calculate this quickly. We can gain the
+number of nucleotides in the following manner.
 
     grep -v ">" NC_016810.fna | grep -o "A" | wc -l
 
@@ -485,11 +532,15 @@ by `m` call:
 
     grep -v ">" NC_016810.fna | grep -o "T" | wc -l
 
-or 
+As we are only need to get the sum of A and T as well as C and G we
+can used and extended pattern for grep. Thee the `|` means *or*:
 
     grep -v ">" NC_016810.fna | grep -Po "A|T" | wc -l
 
     grep -v ">" NC_016810.fna | grep -Po "C|G" | wc -l
+
+Once we have the number we can calculate the GC content by piping a
+formular into the calculator `bc`.
 
     echo "scale=5; 2332503/(2332503+2545509)*100" | bc
 
@@ -503,8 +554,9 @@ or
 * how to install programs (apt-get, make)
 * sed
 * du
-* cut paste
+* cut paste uniq
 
+* write scripts
 * `tar`
 * `gzip`/`gunzip`
 * `bzip2`/`bunzip2`
