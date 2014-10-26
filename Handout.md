@@ -459,7 +459,7 @@ once thing optimally and use the standard input and standard
 output. The real power of Unix builds on the capability to easily
 connect tools. For this so called pipes are used. To use the standard
 output of one file as standard input of another tool the vertical bar
-"|" is used. For example, extract the first 1000 lines from
+`|` is used. For example, extract the first 1000 lines from
 `origin_of_species.txt`, search for line that contain `species`, then
 search in those line that contain `wild` and finally replace the `w`s
 by `m` call:
@@ -544,8 +544,57 @@ formular into the calculator `bc`.
 
     echo "scale=5; 2332503/(2332503+2545509)*100" | bc
 
-### Run RNAfold
+### Multiple alignment with `muscle`
 
+We cannot only work with the default tool of the Unix shell but now
+have access to a plethora of command line tools. Let's assume we want
+to perform a multiple alignment of the members of the [GlmZ
+family](http://rfam.xfam.org/family/GlmZ_SraJ).
+
+First we need to install as tool for this. We choose
+[`muscle`](http://www.drive5.com/muscle/) for this purpose. It's
+website offers compile binaries which means we only have download 
+
+    $ wget http://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
+
+and extract a file:
+
+    $ tar xfz muscle3.8.31_i86linux64.tar.gz
+
+As we might need this tool more often (this is purely hypothetical as
+) we generate a folder `bin` in our home directory. This is per
+convention a place were those programs are stored. 
+
+    $ mkdir bin
+
+Then we move the tool into the folder:
+
+    $ mv muscle3.8.31_i86linux64 bin/muscle
+
+And clean up a little bit:
+
+    $ rm muscle3.8.31_i86linux64.tar.gz
+
+Now we download the sequences of the RNAs which we want to align
+(again, please write the URL in one line and remove the `\`).
+
+    $ wget -O RF00083.fa "http://rfam.xfam.org/family/RF00083/\
+      alignment?acc=RF00083&format=fastau&download=1"
+
+Have a look at the content of the file using `less` or `cat`.
+
+If you call `muscle` without anything you will get a list of parameters. 
+
+    $ ./bin/muscle
+
+Please be aware that we have to give the path to `muscle`.
+
+We want to specify an input file using (`-in`) and an output file (`-out`):
+
+    ./bin/muscle -in  RF00083.fa -out RF00083_aligned.fa
+
+This should take just a moment. Now we have the alignments stored in
+`RF00083_aligned.fa`.
 
 ### What's next
 
