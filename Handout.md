@@ -71,8 +71,7 @@ or with one or more arguments
 
 or with one or more parameters and arguments
 
-  $ ls \-l test_folder
-
+    $ ls \-l test_folder
 
 The results of a command is written usually to the so called *standard
 output* of the shell which is the screen shown to you. We will later
