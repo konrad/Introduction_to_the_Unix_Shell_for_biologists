@@ -351,20 +351,23 @@ change now. Please go into the folder `unix_course_files`:
     $ cd unix_course_files
 
 There should be some files waiting for you. To read the content with
-the possibility to scroll around we need a pager program. Most Unix
-systems offer the programs `more` and `less`. We will use the later
-one here. Let's open the file "origin_of_species.txt"
+the possibility to scroll around we need a so called pager
+program. Most Unix systems offer the programs `more` and `less` which
+have very similar functionalities ("more or less are more or less the
+same"). We will use the later one here. Let's open the file
+"origin_of_species.txt"
 
     $ less origin_of_species.txt
 
-The file contains Charles Darwin *Origin of species*. You can scroll
-up and down line wise using arrow key or page wise using the
-page-up/page-down keys. To quit use the key `q`. The pager programs
-represent an interactive program but sometimes you just want to have
-the content of a file given to you. The command `cat`
-(*concatenate*) does that for one or more files. Let us use it to see
-what is in the example file `two_lines.txt`. Assuming you are in the
-folder `unix_course_files/` you can call
+The file contains Charles Darwin's *Origin of species* in plain
+text. You can scroll up and down line wise using arrow keys or page
+wise using the page-up/page-down keys. To quit use the key `q`. With
+pager programs you can read file content interactively but sometimes
+you just want to have the content of a file given to you (i.e. the
+standard output). The command `cat` (*concatenate*) does that for one
+or more files. Let us use it to see what is in the example file
+`two_lines.txt`. Assuming you are in the folder `unix_course_files/`
+you can call
 
     $ cat two_lines.txt
 
@@ -374,11 +377,11 @@ two file and the content is concatenated and returned:
     $ cat two_lines.txt three_lines.txt
 
 This is a good time to introduce the *standard input* and *standard
-output*. Above I wrote the output it given to you. This means it is
-written to the so called *standard output*. You can redirect the
-*standard output* into a file by using `>`. Let us use the call above
-to generate a new file that contains the combined content of both
-files:
+output* and what you can do with it. Above I wrote the output it given
+to you. This means it is written to the so called *standard
+output*. You can redirect the *standard output* into a file by using
+`>`. Let us use the call above to generate a new file that contains
+the combined content of both files:
 
     $ cat two_lines.txt three_lines.txt > five_lines.txt
 
@@ -388,8 +391,8 @@ Please have a look at the content of this file:
 
 The *standard output* can also be redirected to other tools as
 *standard input*. More about his below. With `cat` we can reuse the
-file content that already exist. To create something new we use the
-command `echo` which writes a given string to the standard output.
+exiting file content. To create something new we use the command
+`echo` which writes a given string to the standard output.
 
     $ echo "Something very creative"
 
@@ -403,20 +406,20 @@ file. For examples if you call now
     $ echo "Something very uncreative." > creative.txt
 
 There will be only the latest string written to the file and the
-previous one will be gone. To append the output of command to a file
-without overwriting the content use ">>"
+previous one will be overwritten. To append the output of command to a
+file without overwriting the content use ">>".
 
    $ echo "Something very creative." > creative.txt
    $ echo "Something very uncreative." >> creative.txt
 
 Now `creative.txt` should contain two lines.
 
-Sometime you just want to have small overview of a file for examples
-you just want to get the first of last lines of it. For this the
-commands `head` and `tail` can be used. Per default 10 lines are
-shown. You can used the parameter `-n <NUMBER>` (e.g. `-n 20` or just
-`-<NUMBER>` (e.g. `-20`) to modify the number lines to be
-displayed. Test the tools with the file `origin_of_species.txt`:
+Sometime you just want to get and excerpt of a file e.g. just the
+first or last lines of it. For this the commands `head` and `tail` can
+be used. Per default 10 lines are shown. You can use the parameter `-n
+<NUMBER>` (e.g. `-n 20` or just `-<NUMBER>` (e.g. `-20`) to modify the
+number of lines to be displayed. Test the tools with the file
+`origin_of_species.txt`:
 
     $ head origin_of_species.txt
     $ tail origin_of_species.txt
