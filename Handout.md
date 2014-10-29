@@ -44,13 +44,13 @@ sign(`$`). It just indicates the so called prompt:
 
 ## The basic anatomy of a command line call
 
-Running a tool in the command line interface follow as simple
+Running a tool in the command line interface follows a simple
 pattern. At first you have to write the name of the command (if it is
-not globally installed it's precise location needs to be give - we will
-get to this later). Some programs additionally require parameters and
-arguments. Parameters usually start with a dash. The common pattern
-looks like this (`<>` indicated obligatory items, `[]` indicated
-option items):
+not globally installed it's precise location needs to be give - we
+will get to this later). Some programs additionally require parameters
+and arguments. Parameters usually start with a dash. The common
+pattern looks like this (`<>` indicated obligatory items, `[]`
+indicated option items):
 
   `<program name>` `[parameters]` `[arguments]`
 
