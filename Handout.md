@@ -243,10 +243,11 @@ not tell you this. If you do not get a message this usually means
 everything went fine. If you call the above `mkdir` command again you
 should get an error message like this:
 
-    $ mkdir: cannot create directory ‘my_first_folder’: File exists
+    $ mkdir my_first_folder
+    mkdir: cannot create directory ‘my_first_folder’: File exists
 
-So if a command does not complain you can usually assume everything
-went as requested.
+So if a command does not complain you can usually assume there was no
+error.
 
 ## Manipulating files and folder
 
@@ -257,17 +258,19 @@ Topics:
 * `mv`
 * `rm` 
 
-Next we want to manipulates file and folders. We create some dummy
+Next we want to manipulate files and folders. We create some dummy
 files using `touch` which is usually used to change the time stamp of
-files (don't worry about this now). But you can also create empty
-files with it easily. Let's create a file:
+files. But you can also create empty files with it easily. Let's
+create a file called `touch test_file_1.txt`:
 
     $ touch test_file_1.txt 
 
-Use `ls` to check that is was created. The command `cp` (copy) can be
-used to copy files. For this it requires at least two arguments: the
-source and the target. In the following example we generate a copy of
-the file `test_file_1.txt` called `a_copy_of_test_file.txt`.
+Use `ls` to check that it was created. 
+
+The command `cp` (copy) can be used to copy files. For this it
+requires at least two arguments: the source and the target file. In
+the following example we generate a copy of the file `test_file_1.txt`
+called `a_copy_of_test_file.txt`.
 
     $ cp test_file_1.txt a_copy_of_test_file.txt
 
@@ -283,11 +286,10 @@ have to use the parameter `-r`
     $ cp -r my_first_folder a_copy_of_my_first_folder
 
 You can use the command `mv` (move) to rename and to relocated files
-or folder. To rename the file `a_copy_of_test_file.txt` call to
-`test_file_with_new_name.txt`.
+or folders. To rename the file `a_copy_of_test_file.txt` to
+`test_file_with_new_name.txt` call
 
     $ mv a_copy_of_test_file.txt test_file_with_new_name.txt
-
 
 With `mv` you can also move a file into a folder. For this the second
 argument has to be a folder. For example, to move the file now named
@@ -302,33 +304,33 @@ folder `my_first_folder`.
     $ touch file1 file2 
     $ mv file1 file2 my_first_folder 
 
-
-At this point we can introduce another handy feature most shell offer
-which is called globbing. Let us assume you want to apply the same
+At this point we can introduce another handy feature most shells offer
+which is called *globbing*. Let us assume you want to apply the same
 command to several files. Instead of explicitly writing all the file
 names you can you a globbing pattern to address them. There are
 different wildcards that can be used for those patterns. The most
-important one is the asterisk `*`. It replaces one or more
-characters. Let us create a small example:
+important one is the asterisk (`*`). It replaces one or more
+characters. Let us explore this with asmall example:
 
     $ touch file1.txt file2.txt file3
     $ ls *txt
     $ mv *txt my_first_folder
 
 The `ls` will show the two files that are matching the given pattern
-(`file1.txt` and `file2.txt`) while dismissing the one not matching
-(`file3`). Same for `mv` - it will only move the two files ending with
-`txt`.
+(i.e. `file1.txt` and `file2.txt`) while dismissing the one not
+matching (i.e. `file3`). Same for `mv` - it will only move the two
+files ending with `txt`.
 
 We accumulated several test files that we do not need. Time to clean
 up a little bit. With the command `rm` (*remove*) you can delete files
 and folders. Please be aware that there is no such a thing as trash
-bin if you remove items this way. They will be gone. To delete a file
-in the my_first_folder call:
+bin if you remove items this way. They will be gone. 
+
+To delete a file in the `my_first_folder` call:
 
     $ rm my_first_folder/file1
 
-To remove the a folder use the parameter "-r":
+To remove the a folder use the parameter "-r" (*recursive*):
 
     $ rm -r my_first_folder
 
