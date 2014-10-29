@@ -430,8 +430,8 @@ in the file `origin_of_species.txt`:
 
     $ cut -c 1-10
 
-The tool `cut` can be very useful to extract certain columns form CSV
-(comma/character separated file). Have a look at the content of the
+The tool `cut` can be very useful to extract certain columns from CSV
+files (comma/character separated). Have a look at the content of the
 file `genes.csv`. You see that is has different columns that are
 tabular separated. You can extract selected column with `cut`:
 
@@ -465,13 +465,13 @@ the following calls
 
 and try understand the output of them.
 
-The tool `uniq` take a sorted list of lines and remove line-wise the
+The tool `uniq` takes a sorted list of lines and removes line-wise the
 redundancy. Please have a look at the content of the file
-`redundant.txt`. Then use uniq to generate a non-redundant list:
+`redundant.txt`. Then use `uniq` to generate a non-redundant list:
 
     $ uniq redundant.txt
 
-If you call uniq with `-c` you the then number of occurrence for each
+If you call `uniq` with `-c` you get the number of occurrence for each
 remaining entry:
 
     $ uniq -c redundant.txt
@@ -488,19 +488,19 @@ use the parameter `-i`.
 
     $ grep -i species origin_of_species.txt
 
-If you are only interested in the number of lines that match pattern
+If you are only interested in the number of lines that the match pattern
 use `-c`:
 
     $ grep -ic species origin_of_species.txt
 
-The program `tr` (translate) exchanges one character by another. It
+The program `tr` (*translate*) exchanges one character by another. It
 reads from the standard input and perform the replacement. To direct
 the content of a file as standard input into a program `<` is
-used. Have quick look at the content of the file `DNA.txt`.
+applied. Have quick look at the content of the file `DNA.txt`.
 
    $ cat DNA.txt
 
-We now want to replace the `T`s there with `U`s. For this we call:
+We now want to replace the `T`s there by `U`s. For this we call:
    
    $ tr T U < unix_course_files/DNA.txt
 
@@ -510,20 +510,20 @@ Another piece of the Unix philosophy is to build small tools that do
 one thing optimally and use the standard input and standard
 output. The real power of Unix builds on the capability to easily
 connect tools. For this so called *pipes* are used. To use the
-standard output of one file as standard input of another tool the
+standard output of one tools as standard input of another tool the
 vertical bar `|` is used. For example, extract the first 1000 lines
 from `origin_of_species.txt`, search for lines that contain `species`,
-then search in those lines that contain `wild` and finally replace the
-`w`s by `m` call:
+then search in those lines the ones wchich contain `wild` and finally
+replace the `w`s by `m` call:
 
     $ head -n 1000 origin_of_species.txt | grep species \ 
       | grep wild | tr "w" "m"
    
 ## Examples analysis
 
-Equipped with fine selection of useful programs and basic
-understanding how to combine them, we will no apply them perform some
-analysis of real biological data.
+Equipped with a fine selection of useful programs and basic
+understanding how to combine them, we will no apply them to analyze
+real biological data.
 
 ### Retrieving data
 
@@ -537,7 +537,7 @@ parts it. Please write in one line in the shell and remove the `\`)
          Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
          NC_016810.fna
 
-Additionally we download the annotation in GFF format of the same replicon:
+Additionally, we download the annotation in GFF format of the same replicon:
 
     wget ftp://ftp.ncbi.nih.gov/genomes/Bacteria/\
          Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
@@ -562,8 +562,8 @@ and `grep` to achieve this.
     $ cut -f 3 NC_016810.gff | grep -c tRNA
 
 To get the number of entries for all other feature we could just
-replace the `tRNA`. But we can also get the number for all of them at
-once:
+replace the `tRNA` e.g. by `rRNA`. But we can also get the number for
+all of them at once using this constellation:
 
     $ grep -v "#" NC_016810.gff | cut -f 3 | sort | uniq -c
 
@@ -586,8 +586,8 @@ number of nucleotides in the following manner.
 
     grep -v ">" NC_016810.fna | grep -o "T" | wc -l
 
-As we are only need to get the sum of As and Ts as well as Cs and Gs
-we can used and extended pattern for grep. The `|` means *or*:
+As we only need to get the sum of As and Ts as well as Cs and Gs we
+can used and extended pattern for grep. The `|` means *or*:
 
     grep -v ">" NC_016810.fna | grep -Eo "A|T" | wc -l
 
@@ -603,15 +603,13 @@ formula into the calculator `bc`.
 We cannot only work with the default tools of the Unix shell but now
 have access to a plethora of command line tools. Let's assume we want
 to perform a multiple alignment of the members of the [GlmZ
-family](http://rfam.xfam.org/family/GlmZ_SraJ).
-
-We choose [`muscle`](http://www.drive5.com/muscle/) for this
-purpose. It's website offers compiled binaries which means we only
-have download
+family](http://rfam.xfam.org/family/GlmZ_SraJ). We choose
+[`muscle`](http://www.drive5.com/muscle/) for this purpose. It's web
+site offers compiled binaries which means we only have download the file
 
     $ wget http://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
 
-and extract a file:
+and extract it:
 
     $ tar xfz muscle3.8.31_i86linux64.tar.gz
 
