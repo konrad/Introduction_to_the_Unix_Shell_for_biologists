@@ -41,7 +41,7 @@ sign(`$`). It just indicates the so called prompt:
 
     $ wget http://data.imib-zinf.net/unix_course_files.tar.gz
     $ tar xfz unix_course_files.tar.gz
-    $ rm xfz unix_course_files.tar.gz
+    $ rm unix_course_files.tar.gz
 
 ## The basic anatomy of a command line call
 
@@ -412,8 +412,8 @@ There will be only the latest string written to the file and the
 previous one will be overwritten. To append the output of command to a
 file without overwriting the content use ">>".
 
-   $ echo "Something very creative." > creative.txt
-   $ echo "Something very uncreative." >> creative.txt
+    $ echo "Something very creative." > creative.txt
+    $ echo "Something very uncreative." >> creative.txt
 
 Now `creative.txt` should contain two lines.
 
@@ -431,7 +431,7 @@ But you cannot only select vertically but also horizontally using the
 command `cut`. Let us extract only the first 10 character of each line
 in the file `origin_of_species.txt`:
 
-    $ cut -c 1-10
+    $ cut -c 1-10 origin_of_species.txt
 
 The tool `cut` can be very useful to extract certain columns from CSV
 files (comma/character separated). Have a look at the content of the
