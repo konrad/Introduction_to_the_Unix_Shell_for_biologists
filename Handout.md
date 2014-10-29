@@ -96,6 +96,9 @@ parameter `-h`, `-help` or `--help`. For example `ls`:
 
    $ ls --help
 
+Other tool present this help if they are called without any parameter
+or arguments.
+
 ## Bash keyboard shortcuts
 
 There are different implementations of the Unix Shell. You are
@@ -646,8 +649,7 @@ We want to specify an input file using (`-in`) and an output file (`-out`):
 
     ./bin/muscle -in  RF00083.fa -out RF00083_aligned.fa
 
-This should take just a moment. Now we have the alignments stored in
-`RF00083_aligned.fa`.
+Now we have the alignments stored in `RF00083_aligned.fa`.
 
 ## Very, very basic scripting
 
@@ -668,14 +670,14 @@ to time restriction we will not cover this here.
 
 ## What's next
 
-He we just covered a small selection of tools and possibilities and
-that you can extend you Unix skills based on this knowledge
-yourself. Some tool we have not cover but could be important are
-archiving and compression tools like `tar`, `bzip2` and gzip. For more
-powerful text manipulation `sed` and `awk` are good choices. We also
-recommend to get familiar with text editors which can be used to
-interactively modify text files.  Classic Unix environment editor are
-[vi](https://en.wikipedia.org/wiki/) (and derivatives like
+Here we just covered a small selection of tools and possibilities and
+hope that you can extend your Unix skills based on this knowledge
+yourself. There are many basic tools we have not cover but could be
+important e.g. archiving and compression tools like `tar`, `bzip2` and
+`gzip`. For more powerful text manipulation `sed` and `awk` are good
+choices. We also recommend to get familiar with text editors which can
+be used to interactively modify text files. Classic Unix environment
+editor are [vi](https://en.wikipedia.org/wiki/) (and derivatives like
 [vim](https://en.wikipedia.org/wiki/Vim_%28text_editor%29)) or
 [Emacs](https://www.gnu.org/software/emacs/). While they are very
 powerful they have a steep learning curve. For beginner `gedit` that
