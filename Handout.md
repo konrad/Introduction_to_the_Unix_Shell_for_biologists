@@ -38,7 +38,7 @@ learn later what you are doing but for the moment just type the
 following commands into the command line interface. Do not write the
 dollar sign(`$`) it just indicates the prompt:
 
-    $ wget http://bit.ly/imibunix2014
+    $ wget http://data.imib-zinf.net/unix_course_files.tar.gz
     $ tar xfz unix_course_files.tar.gz
 
 ## The basic anatonomy of a command line call
@@ -580,12 +580,12 @@ number of nucleotides in the following manner.
 
     grep -v ">" NC_016810.fna | grep -o "T" | wc -l
 
-As we are only need to get the sum of A and T as well as C and G we
-can used and extended pattern for grep. Thee the `|` means *or*:
+As we are only need to get the sum of As and Ts as well as Cs and Gs
+we can used and extended pattern for grep. The `|` means *or*:
 
-    grep -v ">" NC_016810.fna | grep -Po "A|T" | wc -l
+    grep -v ">" NC_016810.fna | grep -Eo "A|T" | wc -l
 
-    grep -v ">" NC_016810.fna | grep -Po "C|G" | wc -l
+    grep -v ">" NC_016810.fna | grep -Eo "C|G" | wc -l
 
 Once we have the number we can calculate the GC content by piping a
 formular into the calculator `bc`.
@@ -594,14 +594,14 @@ formular into the calculator `bc`.
 
 ### Multiple alignment with `muscle`
 
-We cannot only work with the default tool of the Unix shell but now
+We cannot only work with the default tools of the Unix shell but now
 have access to a plethora of command line tools. Let's assume we want
 to perform a multiple alignment of the members of the [GlmZ
 family](http://rfam.xfam.org/family/GlmZ_SraJ).
 
-First we need to install as tool for this. We choose
-[`muscle`](http://www.drive5.com/muscle/) for this purpose. It's
-website offers compile binaries which means we only have download 
+We choose [`muscle`](http://www.drive5.com/muscle/) for this
+purpose. It's website offers compiled binaries which means we only
+have download
 
     $ wget http://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
 
@@ -610,12 +610,13 @@ and extract a file:
     $ tar xfz muscle3.8.31_i86linux64.tar.gz
 
 As we might need this tool more often (this is purely hypothetical as
-) we generate a folder `bin` in our home directory. This is per
-convention a place were those programs are stored. 
+once you shutdown the live system any data will be gone) we generate a
+folder `bin` in our home directory. This is by convention a place
+were those programs are stored.
 
     $ mkdir bin
 
-Then we move the tool into the folder:
+Then we move the tool into the folder and rename it:
 
     $ mv muscle3.8.31_i86linux64 bin/muscle
 
@@ -644,38 +645,33 @@ We want to specify an input file using (`-in`) and an output file (`-out`):
 This should take just a moment. Now we have the alignments stored in
 `RF00083_aligned.fa`.
 
+## Very, very basic scripting
 
-## Editors
+One huge advantage of the Unix shell is that you can script
+actions. For example you can write the command for the multiple
+alignment into a file e.g. using `echo`
 
-To modify a file interactively you can use programs called
-editors. Classis Unix envinronemnt editor are
+    $ echo "./bin/muscle -in  RF00083.fa -out RF00083_aligned.fa" \
+       > run_me.sh
+
+If you want to run the command in that script you can call the script 
+
+    $ bash run_me.sh
+
+Bash scripting offer very powerful option to program workflow. Due to
+time restriction we will not cover this here.
+
+## What's next
+
+He we just covered a small selection of tools and possibilities and
+that you can extend you Unix skills based on this knowledge
+yourself. Some tool we have not cover but could be important are
+archiving and compression tools like `tar`, `bzip2` and gzip. For more
+powerful text manipulation `sed` and `awk` are good choices. We also
+recommend to get familiar with text editors which can be used to
+interactively modify text files.  Classic Unix environment editor are
 [vi](https://en.wikipedia.org/wiki/) (and derivatives like
 [vim](https://en.wikipedia.org/wiki/Vim_%28text_editor%29)) or
 [Emacs](https://www.gnu.org/software/emacs/). While they are very
-powerful they have a steep learning curve. Please make yourself
-familiar with them yourself after the course. For the time being you
-can use the graphical userinterface editor `gedit`. To open `gedit`
-with the file `two_lines.txt` call
-
-    $ gedit
-
-You can edit file with it and click the `Save` button.
-
-
-
-<!--(
-### What's next
-
-* Editors (as mentioned above)
-* ssh 
-* how to install programs (apt-get, make)
-* sed
-* du
-* cut paste uniq
-
-* write scripts
-* `tar`
-* `gzip`/`gunzip`
-* `bzip2`/`bunzip2`
-* `zcat`
-)--!>
+powerful they have a steep learning curve. For beginner `gedit` that
+offers a graphical user interface could be another option.
