@@ -41,6 +41,7 @@ sign(`$`). It just indicates the so called prompt:
 
     $ wget http://data.imib-zinf.net/unix_course_files.tar.gz
     $ tar xfz unix_course_files.tar.gz
+    $ rm xfz unix_course_files.tar.gz
 
 ## The basic anatomy of a command line call
 
@@ -48,7 +49,7 @@ Running a tool in the command line interface follows a simple
 pattern. At first you have to write the name of the command (if it is
 not globally installed it's precise location needs to be give - we
 will get to this later). Some programs additionally require parameters
-and arguments. Parameters usually start with a dash. The common
+and arguments. Parameters usually start with a dash (`-`). The common
 pattern looks like this (`<>` indicated obligatory items, `[]`
 indicated option items):
 
@@ -74,7 +75,7 @@ or with one or more parameters and arguments
 
 
 The results of a command is written usually to the so called *standard
-output* of the shell which is the screen shown to you. We will alter
+output* of the shell which is the screen shown to you. We will later
 learn to redirect this e.g. to the *standard input* of another
 program.
 
@@ -84,9 +85,9 @@ Especially in the beginning you will have a lot of questions what a
 command does and which arguments and parameters need to be given. One
 rule before using a command or before asking somebody about it is
 called [RTFM](https://en.wikipedia.org/wiki/RTFM) (please check the
-meaning yourself). Maybe the most important command in `man` which
+meaning yourself). Maybe the most important command is `man` which
 stands for *manual*. Most commands offer a manual and with `man` you
-can read them. To get the documentation of `ls` type
+can read those. To get the documentation of `ls` type
 
     $ man ls
 
@@ -136,8 +137,8 @@ of the folder `home`. The next command we need and which has been
 already mentioned above is `ls`. It simply lists the content of a
 folder. If you call it without any argument is will show the content
 of the current folder. Using `ls` we want to get a rough overview how
-common Unix file system tree looks like and learn how to address files
-and folders. The root folder of a systems starts with `/`. Call
+a common Unix file system tree looks like and learn how to address
+files and folders. The root folder of a systems starts with `/`. Call
 
     $ ls /
 
@@ -146,17 +147,17 @@ To see the file in the root folder. You should see something like
     bin   data  etc  lib    lost+found  mnt  proc  run   srv  tmp  var
     boot  dev   home lib64  media   opt  root  sbin  sys  usr  
 
-There are several subfolder in the so called root folder (and yes,
-there is even a folder called "root" in the so called root
-folder). Those are more important if you are the administrator of the
-system and you do not have the permission to do do changes
-there. Currently your home directory is you little universe in which
-you can do whatever you want to do. In here we will learn how work
-with the paths. A file or folder can be addressed either with is
-*absolute* or its *relative path*. As you have downloaded a collection
-of test files and folder you should have a folder `unix_course_files`
-in you home folder. Assuming you are in you home folder
-`/home/ubuntu/` the relative path to the folder is simply
+There are several subfolders in the so called root folder (and yes, to
+make it a little bit confusing there is even a folder called "root" in
+the so called root folder). Those are more important if you are the
+administrator of the system and you do not have the permission to do
+do changes there. Currently your home directory is your little
+universe in which you can do whatever you want to do. In here we will
+learn how work with the paths. A file or folder can be addressed
+either with is *absolute* or its *relative path*. As you have
+downloaded a collection of test files and folder you should have a
+folder `unix_course_files` in you home folder. Assuming you are in you
+home folder `/home/ubuntu/` the relative path to the folder is simply
 `unix_course_files`. You can get the content of the folder listed by
 calling `ls` like this:
 
@@ -169,11 +170,11 @@ and is `/home/ubuntu/unix_course_files`. Call `ls` like this:
     $ ls /home/ubuntu/unix_course_files
 
 There are some conventions regarding relative and absolute paths. One
-is that a dot (`.`) mean the current folder. The command
+is that a dot (`.`) represents the current folder. The command
 
     $ ls ./
 
-should return the same as simply
+should return the same as simply calling
 
     $ ls
 
@@ -181,7 +182,7 @@ Two dots (`..`) mean the parent folder. If you call
 
     $ ls ../
 
-you should the content of `/home`. If you call
+you should see the content of `/home`. If you call
 
     $ ls ../../ 
 
@@ -192,13 +193,13 @@ command
 
     $ ls ~/
     
-should list the content of you home directory independent of you
+should list the content of your home directory independent of your
 current location in the file system.
 
-Now we now where we are and what is there we can start to change our
-location. For this we use the command `cd` (change directory). If you
-are in you home directory `/home/ubuntu/` you can go into the folder 
-`unix_course_files` by typing
+Now as we know where we are and what is there we can start to change
+our location. For this we use the command `cd` (change directory). If
+you are in you home directory `/home/ubuntu/` you can go into the
+folder `unix_course_files` by typing
 
     $ cd unix_course_files
 
@@ -230,17 +231,17 @@ go to the home directory. Test this behavior by calling
 Try now to go to different locations in the file system and list the
 files and folder located there.
 
-Now we will create our first folder using the command `mkdir` (make
-directory). Go into the home directory and type:
+Now we will create our first folder using the command `mkdir` (*make
+directory*). Go into the home directory and type:
 
     $ mkdir my_first_folder
 
 Here we can discuss the implementation of another Unix philosophy: "No
-news is good news." The command successfully created the folder. You
-can check this by calling `ls`. But it did not tell you this. If you
-do not get a message this usually means everything went fine. If you
-call the above `mkdir` command again you should get an error message
-like this:
+news is good news." The command successfully created the folder
+`my_first_folder`. You can check this by calling `ls`. But `mkdir` did
+not tell you this. If you do not get a message this usually means
+everything went fine. If you call the above `mkdir` command again you
+should get an error message like this:
 
     $ mkdir: cannot create directory ‘my_first_folder’: File exists
 
