@@ -17,24 +17,27 @@ In this course you will learn the basics of how to use the Unix
 Shell. Unix is a class of operating systems with many different
 flavors including well known ones like GNU/Linux and the BSDs. The
 development of Unix and its shell (also known as command line
-interface) dates back to the late 1960s. Still, concepts lead to very
-very powerful tool. In the command line you can easily combine
+interface) dates back to the late 1960s. Still, their concepts lead to
+very powerful tools. In the command line you can easily combine
 different tools into pipelines, avoid repetitive work and make your
-workflow reproducible. 
+workflow reproducible. Knowing how to use the shell will also enable
+you to run programs that are only developed for this environment which
+is the case for many bioinformatical tools.
 
-## Setting up the environment
+## Work environment and test files
 
 During this course all of you are working on Ubuntu (version 14.04)
 which is a widely used GNU/Linux distribution. The systems boots from
 a USB stick which offers you to run a live system or to install Ubuntu
-on your computer. We will run it the live mode which will not change
-the system installed on your PC. After shutting the live system down
-and removing the stick everything on the computer will be as
-before. To get test data and additional program click on the Dash
-button on the top left on your screen and type "terminal". You will
-learn later what you are doing but for the moment just type the
-following commands into the command line interface. Do not write the
-dollar sign(`$`) it just indicates the prompt:
+on your computer. We will run the live mode which will not change the
+system installed on your PC. After shutting the live system down and
+removing the stick everything on the computer will be as before. 
+
+To get test data click on the `Dash` button on the top left of your
+screen, type `terminal` and click on the Terminal icon. You will learn
+later what you are doing but for the moment just type the following
+commands into the command line interface. Do not write the dollar
+sign(`$`). It just indicates the so called prompt:
 
     $ wget http://data.imib-zinf.net/unix_course_files.tar.gz
     $ tar xfz unix_course_files.tar.gz
