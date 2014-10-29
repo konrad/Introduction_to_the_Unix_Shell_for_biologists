@@ -1,7 +1,5 @@
 # Introduction to the Unix Shell for biologists
 
-THIS IS WORK IN PROGRESS!
-
 ![CC-BY](by.png)\
 
 This work by Konrad Förstner is licensed under a [Creative Commons
@@ -41,11 +39,11 @@ dollar sign(`$`) it just indicates the prompt:
     $ wget http://data.imib-zinf.net/unix_course_files.tar.gz
     $ tar xfz unix_course_files.tar.gz
 
-## The basic anatonomy of a command line call
+## The basic anatomy of a command line call
 
 Running a tool in the command line interface follow as simple
 pattern. At first you have to write the name of the command (if it is
-not globally installe it's precise location needs to be give - we will
+not globally installed it's precise location needs to be give - we will
 get to this later). Some programs additionally require parameters and
 arguments. Parameters usually start with a dash. The common pattern
 looks like this (`<>` indicated obligatory items, `[]` indicated
@@ -53,7 +51,7 @@ option items):
 
   `<program name>` `[parameters]` `[arguments]`
 
-An example is caling the program `ls` which list the content of a
+An example is calling the program `ls` which list the content of a
 directory. You can simply call it without any parameter 
 
     $ ls
@@ -340,7 +338,6 @@ Topics:
 * `head`
 * `tail`
 * `cut`
-* editors `vi`, `emacs`, `nano`, `gedit`
 
 Until now we did not care about the content of the files. This will
 change now. Please go into the folder `unix_course_files`:
@@ -379,12 +376,12 @@ files:
 
     $ cat two_lines.txt three_lines.txt > five_lines.txt
 
-Let us have a look at the content of this file:
+Please have a look at the content of this file:
 
     $ cat five_lines.txt
 
-The *standard output* can also be redirected to other tool as
-*standard input*. More about his below. With `cat` we can recylce the
+The *standard output* can also be redirected to other tools as
+*standard input*. More about his below. With `cat` we can reuse the
 file content that already exist. To create something new we use the
 command `echo` which writes a given string to the standard output.
 
@@ -408,7 +405,7 @@ without overwriting the content use ">>"
 
 Now `creative.txt` should contain two lines.
 
-Sometime you just want to have small overwiew of a file for examples
+Sometime you just want to have small overview of a file for examples
 you just want to get the first of last lines of it. For this the
 commands `head` and `tail` can be used. Per default 10 lines are
 shown. You can used the parameter `-n <NUMBER>` (e.g. `-n 20` or just
@@ -459,7 +456,7 @@ the following calls
 
 and try understand the output of them.
 
-The tool `uniq` take a sorted list of lines and remove linewise the
+The tool `uniq` take a sorted list of lines and remove line-wise the
 redundancy. Please have a look at the content of the file
 `redundant.txt`. Then use uniq to generate a non-redundant list:
 
@@ -501,7 +498,7 @@ We now want to replace the `T`s there with `U`s. For this we call:
 ## Connecting tools
 
 Another piece of the Unix philosophy is to build small tools that do
-once thing optimally and use the standard input and standard
+one thing optimally and use the standard input and standard
 output. The real power of Unix builds on the capability to easily
 connect tools. For this so called *pipes* are used. To use the
 standard output of one file as standard input of another tool the
@@ -588,7 +585,7 @@ we can used and extended pattern for grep. The `|` means *or*:
     grep -v ">" NC_016810.fna | grep -Eo "C|G" | wc -l
 
 Once we have the number we can calculate the GC content by piping a
-formular into the calculator `bc`.
+formula into the calculator `bc`.
 
     echo "scale=5; 2332503/(2332503+2545509)*100" | bc
 
@@ -654,12 +651,13 @@ alignment into a file e.g. using `echo`
     $ echo "./bin/muscle -in  RF00083.fa -out RF00083_aligned.fa" \
        > run_me.sh
 
-If you want to run the command in that script you can call the script 
+If you want to run the command in that script you can call the script
+in the following manner:
 
     $ bash run_me.sh
 
-Bash scripting offer very powerful option to program workflow. Due to
-time restriction we will not cover this here.
+Shell scripting offers very powerful options to program workflow. Due
+to time restriction we will not cover this here.
 
 ## What's next
 
