@@ -12,5 +12,17 @@ example_files: pdf
 	  > unix_course_files/unsorted_numbers.txt
 	echo "ATGTGGTAGTAGTATGAAATGTGA" \
 	  > unix_course_files/DNA.txt
+	echo "Name\tStart\tStop\tStrand" \
+	  > unix_course_files/genes.csv
+	echo "dnaA\t1\t1416\t+" \
+	  >> unix_course_files/genes.csv
+	echo "gyrA\t6479\t8908\t+" \
+	  >> unix_course_files/genes.csv
+	echo "rpsF\t29330\t29788\t+" \
+	  >> unix_course_files/genes.csv
+	echo "yidC\t3986072\t3987691\t-" \
+	  >> unix_course_files/genes.csv
+	echo "tRNA\ntRNA\ntRNA\nrRNA\nrRNA\nmRNA\nmRNA\nmRNA\nmRNA" \
+	  > unix_course_files/redundant.txt
 	wget -cO unix_course_files/origin_of_species.txt \
           http://www.gutenberg.org/cache/epub/22764/pg22764.txt     
