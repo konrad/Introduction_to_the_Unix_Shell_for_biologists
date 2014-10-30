@@ -508,7 +508,7 @@ applied. Have a quick look at the content of the file `DNA.txt`.
 
 We now want to replace all `T`s in the file by `U`s. For this we call:
    
-    $ tr T U < unix_course_files/DNA.txt
+    $ tr T U < DNA.txt
 
 ## Connecting tools
 
