@@ -517,10 +517,11 @@ one thing optimally and use the standard input and standard
 output. The real power of Unix builds on the capability to easily
 connect tools. For this so-called *pipes* are used. To use the
 *standard output* of one tool as *standard input* of another tool the
-vertical bar `|` is used. For example, in order to extract the first 1000 lines
-from `origin_of_species.txt`, search for lines that contain `species`,
-then search in those lines the ones which contain `wild` and finally
-replace the `w`s by `m`s call:
+vertical bar `|` is used. For example, in order to extract the first
+1000 lines from `origin_of_species.txt`, search for lines that contain
+`species`, then search in those lines the ones which contain `wild`
+and finally replace the `w`s by `m`s call (Please write this in one line
+in the shell and remove the `\`):
 
     $ head -n 1000 origin_of_species.txt | grep species \ 
       | grep wild | tr w m
@@ -606,12 +607,15 @@ formula into the calculator `bc`.
 
 ### Multiple sequence alignment with `muscle`
 
-We cannot only work with the default tools of the Unix shell but additionally
-have now access to a plethora of command line tools. Let's assume we want
-to perform a multiple alignment of the members of the [GlmZ
+We cannot only work with the default tools of the Unix shell but
+additionally have now access to a plethora of command line
+tools. Let's assume we want to perform a multiple alignment of the
+members of the [GlmZ
 family](http://rfam.xfam.org/family/GlmZ_SraJ). We choose
 [`muscle`](http://www.drive5.com/muscle/) for this purpose. Its web
-site offers compiled binaries which means we only have to download the containing archive via
+site offers compiled binaries which means we only have to download the
+containing archive via (again, please write it in one line in the
+shell and remove the `\`)
 
     $ wget http://www.drive5.com/muscle/downloads3.8.31/\
            muscle3.8.31_i86linux64.tar.gz
