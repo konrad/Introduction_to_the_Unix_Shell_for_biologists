@@ -283,7 +283,7 @@ folder `my_first_folder` which we have created above:
 
 Now there should be also a file `test_file_1.txt` in the folder
 `my_first_folder`. If you want to copy a folder and its content you
-have to use the parameter `-r`
+have to use the parameter `-r`.
 
     $ cp -r my_first_folder a_copy_of_my_first_folder
 
@@ -398,7 +398,7 @@ existing file content. To create something new we use the command
 
     $ echo "Something very creative"
 
-Do redirect it into a target file use `>`.
+To redirect the output into a target file use `>`.
 
     $ echo "Something very creative." > creative.txt
 
@@ -533,7 +533,7 @@ You have used the tool `wget` above to download the example files. It is
 very useful, especially, if you want to retrieve large data sets. We
 download the fasta file of the *Salmonella* Thyphimuirum SL1344
 chromosome by calling (in this document the URL is split into three
-lines. Please write it in one line in the shell and remove the `\`)
+lines. Please write it in one line in the shell and remove the `\`).
 
     wget ftp://ftp.ncbi.nih.gov/genomes/Bacteria/\
          Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
@@ -606,7 +606,7 @@ We cannot only work with the default tools of the Unix shell but additionally
 have now access to a plethora of command line tools. Let's assume we want
 to perform a multiple alignment of the members of the [GlmZ
 family](http://rfam.xfam.org/family/GlmZ_SraJ). We choose
-[`muscle`](http://www.drive5.com/muscle/) for this purpose. It's web
+[`muscle`](http://www.drive5.com/muscle/) for this purpose. Its web
 site offers compiled binaries which means we only have to download the containing archive via
 
     $ wget http://www.drive5.com/muscle/downloads3.8.31/\
