@@ -104,6 +104,9 @@ There are different implementations of the Unix shell. You are
 currently working with Bash (**B**ourne-**a**gain **sh**ell). Bash has several keyboard shortcuts that
 improve the interaction. Here is a small selection:
 
+* Ctrl-c - Stop the command
+* Ctlr-↑ - Go backward in command history
+* Ctlr-↓ - Go forward in command history
 * Ctrl-a - Jump to the beginning of a line
 * Ctrl-e - Jump to the end of a line
 * Ctrl-u - Remove everything before the cursor position
