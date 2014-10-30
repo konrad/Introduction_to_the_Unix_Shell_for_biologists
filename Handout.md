@@ -1,4 +1,6 @@
-# Introduction to the Unix shell for biologists
+% Introduction to the Unix shell for biologists
+% Konrad U. Förstner
+% 
 
 ![CC-BY](by.png)\
 
@@ -11,7 +13,7 @@ The source code can be found at:
 [https://github.com/konrad/Introduction_to_the_Unix_Shell_for_biologists/
 	](https://github.com/konrad/Introduction_to_the_Unix_Shell_for_biologists/)
 
-## Motivation and background
+# Motivation and background
 
 In this course you will learn the basics of how to use the Unix
 shell. Unix is a class of operating systems with many different
@@ -24,7 +26,7 @@ workflow reproducible. Knowing how to use the shell will also enable
 you to run programs that are only developed for this environment which
 is the case for many bioinformatical tools.
 
-## Work environment and test files
+# Work environment and test files
 
 During this course all of you are working on Ubuntu (version 14.04)
 which is a widely used GNU/Linux distribution. The systems boots from
@@ -43,7 +45,7 @@ sign(`$`). It just indicates the so called prompt:
     $ tar xfz unix_course_files.tar.gz
     $ rm unix_course_files.tar.gz
 
-## The basic anatomy of a command line call
+# The basic anatomy of a command line call
 
 Running a tool in the command line interface follows a simple
 pattern. At first you have to write the name of the command (if it is
@@ -78,7 +80,7 @@ output* of the shell which is the screen shown to you. We will later
 learn how to redirect this e.g. to the *standard input* of another
 program.
 
-## How to get help and documentation
+# How to get help and documentation
 
 Especially in the beginning you will have a lot of questions what a
 command does and which arguments and parameters need to be given. One
@@ -99,7 +101,7 @@ example `ls`:
 Other tools present this help if they are called without any parameters
 or arguments.
 
-## Bash keyboard shortcuts
+# Bash keyboard shortcuts
 
 There are different implementations of the Unix shell. You are
 currently working with Bash (**B**ourne-**a**gain **sh**ell). Bash has several keyboard shortcuts that
@@ -116,7 +118,7 @@ improve the interaction. Here is a small selection:
 * Ctrl-r - Search in command history
 * Tab - extend commands and file/folder names
 
-## Files, folders, locations
+# Files, folders, locations
 
 Topics:
 
@@ -255,7 +257,7 @@ should get an error message like this:
 So if a command does not complain you can usually assume there was no
 error.
 
-## Manipulating files and folder
+# Manipulating files and folder
 
 Topics:
 
@@ -340,7 +342,7 @@ To remove a folder use the parameter `-r` (*recursive*):
 
     $ rm -r my_first_folder
 
-## File content
+# File content - part 1
 
 Topics:
 
@@ -443,7 +445,7 @@ tabular-separated. You can extract selected columns with `cut`:
 
     $ cut -f 1,4 genes.csv
 
-## Working with the file content
+# File content - part 1
 
 Topics:
 
@@ -510,7 +512,7 @@ We now want to replace all `T`s in the file by `U`s. For this we call:
    
     $ tr T U < DNA.txt
 
-## Connecting tools
+# Connecting tools
 
 Another piece of the Unix philosophy is to build small tools that do
 one thing optimally and use the standard input and standard
@@ -526,13 +528,13 @@ in the shell and remove the `\`):
     $ head -n 1000 origin_of_species.txt | grep species \ 
       | grep wild | tr w m
    
-## Examples analysis
+# Examples analysis
 
 Equipped with a fine selection of useful programs and basic
 understanding of how to combine them, we will no apply them to analyze
 real biological data.
 
-### Retrieving data
+## Retrieving data
 
 You have used the tool `wget` above to download the example files. It is
 very useful, especially, if you want to retrieve large data sets. We
@@ -550,7 +552,7 @@ Additionally, we download the annotation in GFF format of the same replicon:
          Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
          NC_016810.gff
 
-### Counting the number of features
+## Counting the number of features
 
 Use `less` to have a look at `NC_016810.gff`. It is a tabular-separated
 file. The first 5 lines start with `#` and are called
@@ -579,7 +581,7 @@ count the number genes on the plus and minus strand:
 
     $ cut -f 3,7 NC_016810.gff | grep gene | sort | uniq -c
 
-### Calculate the GC content of a genome
+## Calculate the GC content of a genome
 
 Let us assume the GC content of the genome is not known to us. We can
 use a handful of commands to calculate this quickly. We can gain the
@@ -605,7 +607,7 @@ formula into the calculator `bc`.
 
     echo "scale=5; 2332503/(2332503+2545509)*100" | bc
 
-### Multiple sequence alignment with `muscle`
+## Multiple sequence alignment with `muscle`
 
 We cannot only work with the default tools of the Unix shell but
 additionally have now access to a plethora of command line
@@ -659,7 +661,7 @@ We want to specify an input file using (`-in`) and an output file (`-out`):
 
 Now we have the alignments stored in `RF00083_aligned.fa`.
 
-## Very, very basic scripting
+# Very, very basic scripting
 
 One huge advantage of the Unix shell is that you can script
 actions. For example you can write the command for the multiple
@@ -676,7 +678,7 @@ in the following manner:
 Shell scripting offers very powerful options to program workflows. Due
 to time restriction we will not cover this here.
 
-## What's next
+# What's next
 
 Here we just covered a small selection of tools and possibilities and
 hope that you can extend your Unix skills based on this knowledge
