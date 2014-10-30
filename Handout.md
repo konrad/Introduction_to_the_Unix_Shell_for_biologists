@@ -90,8 +90,9 @@ can read those. To get the documentation of `ls` type
 
     $ man ls
 
-Additionally or alternatively many tools offer some help via the
-parameter `-h`, `-help` or `--help`. For example `ls`:
+To close the manual use `q`. Additionally or alternatively many tools
+offer some help via the parameter `-h`, `-help` or `--help`. For
+example `ls`:
 
     $ ls --help
 
