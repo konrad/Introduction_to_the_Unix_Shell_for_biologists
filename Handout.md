@@ -45,6 +45,14 @@ sign(`$`). It just indicates the so called prompt:
     $ tar xfz unix_course_files.tar.gz
     $ rm unix_course_files.tar.gz
 
+If this URL is not existing anymore you can use the `Makefile` which
+is located in the repository of this manuscript to generate the test
+data:
+
+    $ export GIT_URL=https://raw.githubusercontent.com/konrad
+	$ wget $GIT_URL/Introduction_to_the_Unix_Shell_for_biologists/master/Makefile
+    $ make example_files
+
 # The basic anatomy of a command line call
 
 Running a tool in the command line interface follows a simple
