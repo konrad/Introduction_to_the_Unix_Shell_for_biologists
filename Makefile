@@ -3,7 +3,7 @@ pdf:
           -V geometry:"top=2cm, bottom=2.0cm, left=2.5cm, right=2.5cm" \
           --variable mainfont=Georgia Handout.md
 
-example_files: pdf
+example_files:
 	mkdir -p unix_course_files
 	echo "This file\ncontains three\nlines." \
 	  > unix_course_files/three_lines.txt
