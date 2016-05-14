@@ -50,7 +50,7 @@ is located in the repository of this manuscript to generate the test
 data:
 
     $ export GIT_URL=https://raw.githubusercontent.com/konrad
-	$ wget $GIT_URL/Introduction_to_the_Unix_Shell_for_biologists/master/Makefile
+    $ wget $GIT_URL/Introduction_to_the_Unix_Shell_for_biologists/master/Makefile
     $ make example_files
 
 # The basic anatomy of a command line call
@@ -453,7 +453,7 @@ tabular-separated. You can extract selected columns with `cut`:
 
     $ cut -f 1,4 genes.csv
 
-# File content - part 1
+# File content - part 2
 
 Topics:
 
