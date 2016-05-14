@@ -1,7 +1,12 @@
 pdf:
-	pandoc -o Handout.pdf --variable monofont="Bitstream Vera Sans Mono" \
-          -V geometry:"top=2cm, bottom=2.0cm, left=2.5cm, right=2.5cm" \
-          --variable mainfont=Georgia Handout.md
+	pandoc \
+	  -o Handout.pdf \
+          --toc \
+	   --latex-engine xelatex \
+	   --variable mainfont="DejaVu Sans" \
+	   --variable sansfont="DejaVu Sans" \
+	   -V geometry:"top=2cm, bottom=2.0cm, left=2.5cm, right=2.5cm" \
+	  Handout.md
 
 example_files:
 	mkdir -p unix_course_files
