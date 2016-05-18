@@ -8,6 +8,8 @@ This work by Konrad Förstner is licensed under a [Creative Commons
 Attribution 4.0 International
 License](https://creativecommons.org/licenses/by/4.0/).
 
+Version 1.0
+
 The source code can be found at:
 
 [https://github.com/konrad/Introduction_to_the_Unix_Shell_for_biologists/

@@ -32,3 +32,9 @@ example_files:
 	  > unix_course_files/redundant.txt
 	wget -cO unix_course_files/origin_of_species.txt \
           http://www.gutenberg.org/cache/epub/22764/pg22764.txt     
+
+new_release:
+	@echo "* Commit changes e.g. 'git commit -m \"Set version to 1.0\"'"
+	@echo "* Tag the commit e.g. 'git tag -a v1.0 -m \"version v1.0\"'"
+	@echo "* Generate a new release based on this tag at"
+	@echo "  https://github.com/konrad/Introduction_to_the_Unix_Shell_for_biologists/releases"
