@@ -552,15 +552,15 @@ download the fasta file of the *Salmonella* Thyphimuirum SL1344
 chromosome by calling (in this document the URL is split into three
 lines. Please write it in one line in the shell and remove the `\`).
 
-    wget ftp://ftp.ncbi.nih.gov/genomes/Bacteria/\
-         Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
-         NC_016810.fna
+    wget ftp://ftp.ncbi.nih.gov/genomes/archive/old_refseq/Bacteria/\
+    	 Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
+	     NC_016810.fna
 
 Additionally, we download the annotation in GFF format of the same replicon:
 
-    wget ftp://ftp.ncbi.nih.gov/genomes/Bacteria/\
-         Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
-         NC_016810.gff
+    wget ftp://ftp.ncbi.nih.gov/genomes/archive/old_refseq/Bacteria/\
+    	 Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
+	     NC_016810.gff
 
 ## Counting the number of features
 
