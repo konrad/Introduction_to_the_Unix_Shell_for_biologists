@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/2756/konrad/Introduction_to_the_Unix_Shell_for_biologists.svg)](https://zenodo.org/badge/latestdoi/2756/konrad/Introduction_to_the_Unix_Shell_for_biologists)
+
 ## Introduction to the Unix Shell for biologists
 
 See Handout.md for the main document.
