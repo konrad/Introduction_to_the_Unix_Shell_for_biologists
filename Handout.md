@@ -43,17 +43,21 @@ later what you are doing but for the moment just type the following
 commands into the command line interface. Do not write the dollar
 sign(`$`). It just indicates the so called prompt:
 
-    $ wget http://data.imib-zinf.net/unix_course_files.tar.gz
-    $ tar xfz unix_course_files.tar.gz
-    $ rm unix_course_files.tar.gz
+```
+$ wget http://data.imib-zinf.net/unix_course_files.tar.gz
+$ tar xfz unix_course_files.tar.gz
+$ rm unix_course_files.tar.gz
+```
 
 If this URL is not existing anymore you can use the `Makefile` which
 is located in the repository of this manuscript to generate the test
 data:
 
-    $ export GIT_URL=https://raw.githubusercontent.com/konrad
-    $ wget $GIT_URL/Introduction_to_the_Unix_Shell_for_biologists/master/Makefile
-    $ make example_files
+```
+$ export GIT_URL=https://raw.githubusercontent.com/konrad
+$ wget $GIT_URL/Introduction_to_the_Unix_Shell_for_biologists/master/Makefile
+$ make example_files
+```
 
 # The basic anatomy of a command line call
 
@@ -70,20 +74,28 @@ indicates optional items):
 An example is calling the program `ls` which lists the content of a
 directory. You can simply call it without any parameter 
 
-    $ ls
+```
+$ ls
+```
 
 or with one or more  parameters
 
-    $ ls -l
-    $ ls -lh
+```
+$ ls -l
+$ ls -lh
+```
 
 or with one or more arguments
 
-    $ ls test_folder
+```
+$ ls test_folder
+```
 
 or with one or more parameters and arguments
 
-    $ ls -l test_folder
+```
+$ ls -l test_folder
+```
 
 The result of a command is written usually to the so called *standard
 output* of the shell which is the screen shown to you. We will later
@@ -100,13 +112,17 @@ meaning yourself). Maybe the most important command is `man` which
 stands for *manual*. Most commands offer a manual and with `man` you
 can read those. To get the documentation of `ls` type
 
-    $ man ls
+```
+$ man ls
+```
 
 To close the manual use `q`. Additionally or alternatively many tools
 offer some help via the parameter `-h`, `-help` or `--help`. For
 example `ls`:
 
-    $ ls --help
+```
+$ ls --help
+```
 
 Other tools present this help if they are called without any parameters
 or arguments.
@@ -146,8 +162,10 @@ At first we need to know where we are. If you open a new terminal you
 should be in your home directory (we will explain this below). To test
 this, call the program `pwd` which stands for **p**rint **w**orking **d**irectory.
 
-    $ pwd
-    /home/ubuntu
+```
+$ pwd
+/home/ubuntu
+```
 
 The default user of the Ubuntu live system is called `ubuntu`. In
 general each user has a folder with its user name located inside
@@ -158,12 +176,16 @@ of the current folder. Using `ls` we want to get a rough overview of what
 a common Unix file system tree looks like and learn how to address
 files and folders. The root folder of a systems starts with `/`. Call
 
-    $ ls /
+```
+$ ls /
+```
 
 to see the content of the root folder. You should see something like
 
-    bin   data  etc  lib    lost+found  mnt  proc  run   srv  tmp  var
-    boot  dev   home lib64  media   opt  root  sbin  sys  usr
+```
+bin   data  etc  lib    lost+found  mnt  proc  run   srv  tmp  var
+boot  dev   home lib64  media   opt  root  sbin  sys  usr
+```
 
 There are several subfolders in the so-called root folder (and yes, to
 make it a little bit confusing there is even a folder called `root` in
@@ -179,37 +201,51 @@ folder (`/home/ubuntu/`) the relative path to the folder is simply
 `unix_course_files`. You can get the content of the folder listed by
 calling `ls` like this:
 
-    $ ls unix_course_files
+```
+$ ls unix_course_files
+```
    
 This is the so called *relative path* as it is relative to the current work
 directory `/home/ubuntu/`. The *absolute path* would start with a `/`
 and is `/home/ubuntu/unix_course_files`. Call `ls` like this:
 
-    $ ls /home/ubuntu/unix_course_files
+```
+$ ls /home/ubuntu/unix_course_files
+```
 
 There are some conventions regarding *relative* and *absolute paths*. One
 is that a dot (`.`) represents the current folder. The command
 
-    $ ls ./
+```
+$ ls ./
+```
 
 should return the same as simply calling
 
-    $ ls
+```
+$ ls
+```
 
 Two dots (`..`) represent the parent folder. If you call
 
-    $ ls ../
+```
+$ ls ../
+```
 
 you should see the content of `/home`. If you call
 
-    $ ls ../../ 
+```
+$ ls ../../
+```
 
 you should see the content of the parent folder of the parent folder which
 is the root folder (`/`) assuming you are in `/home/ubuntu/`. Another
 convention is that `~/` represents the home directory of the user. The
 command
 
-    $ ls ~/
+```
+$ ls ~/
+```
     
 should list the content of your home directory independent of your
 current location in the file system.
@@ -219,32 +255,44 @@ our location. For this we use the command `cd` (change directory). If
 you are in your home directory `/home/ubuntu/` you can go into the
 folder `unix_course_files` by typing
 
-    $ cd unix_course_files
+```
+$ cd unix_course_files
+```
 
 After that call `pwd` to make sure that you are in the correct folder.
 
-    $ pwd 
-    /home/ubuntu/unix_course_files
+```
+$ pwd 
+/home/ubuntu/unix_course_files
+```
 
 To go back into your home directory you have different options. Use
 the *absolute path*
 
-    $ cd /home/ubuntu/
+```
+$ cd /home/ubuntu/
+```
 
 or the above mentioned convention for the home directory `~/`:
 
-    $ cd ~/
+```
+$ cd ~/
+```
 
 or the *relative path*, in this case the parent directory of  
 `/home/ubuntu/unix_course_files`:
 
-    $ cd ../
+```
+$ cd ../
+```
 
 As the home directory is such an important place `cd` uses this as
 default argument. This means if you call `cd` without argument you will
 go to the home directory. Test this behavior by calling
 
-    $ cd
+```
+$ cd
+```
 
 Try now to go to different locations in the file system and list the
 files and folders located there.
@@ -252,7 +300,9 @@ files and folders located there.
 Now we will create our first folder using the command `mkdir` (*make
 directory*). Go into the home directory and type:
 
-    $ mkdir my_first_folder
+```
+$ mkdir my_first_folder
+```
 
 Here we can discuss the implementation of another Unix philosophy: "No
 news is good news." The command successfully created the folder
@@ -261,8 +311,10 @@ not tell you this. If you do not get a message this usually means
 everything went fine. If you call the above `mkdir` command again you
 should get an error message like this:
 
-    $ mkdir my_first_folder
-    mkdir: cannot create directory ‘my_first_folder’: File exists
+```
+$ mkdir my_first_folder
+mkdir: cannot create directory ‘my_first_folder’: File exists
+```
 
 So if a command does not complain you can usually assume there was no
 error.
@@ -281,7 +333,9 @@ files using `touch` which is usually used to change the time stamps of
 files. But you can also create empty files with it easily. Let's
 create a file called `test_file_1.txt`:
 
-    $ touch test_file_1.txt 
+```
+$ touch test_file_1.txt
+```
 
 Use `ls` to check that it was created. 
 
@@ -290,37 +344,49 @@ requires at least two arguments: the source and the target file. In
 the following example we generate a copy of the file `test_file_1.txt`
 called `a_copy_of_test_file.txt`.
 
-    $ cp test_file_1.txt a_copy_of_test_file.txt
+```
+$ cp test_file_1.txt a_copy_of_test_file.txt
+```
 
 Use `ls` to confirm that this worked. We can also copy the file in the
 folder `my_first_folder` which we have created above:
 
-    $ cp test_file_1.txt my_first_folder
+```
+$ cp test_file_1.txt my_first_folder
+```
 
 Now there should be also a file `test_file_1.txt` in the folder
 `my_first_folder`. If you want to copy a folder and its content you
 have to use the parameter `-r`.
 
-    $ cp -r my_first_folder a_copy_of_my_first_folder
+```
+$ cp -r my_first_folder a_copy_of_my_first_folder
+```
 
 You can use the command `mv` (*move*) to rename or relocate files
 or folders. To rename the file `a_copy_of_test_file.txt` to
 `test_file_with_new_name.txt` call
 
-    $ mv a_copy_of_test_file.txt test_file_with_new_name.txt
+```
+$ mv a_copy_of_test_file.txt test_file_with_new_name.txt
+```
 
 With `mv` you can also move a file into a folder. For this the second
 argument has to be a folder. For example, to move the file now named
 `test_file_with_new_name.txt` into the folder `my_first_folder` use 
-    
-    $ mv test_file_with_new_name.txt my_first_folder
+
+```
+$ mv test_file_with_new_name.txt my_first_folder
+```
 
 You are not limited to one file if you want to move them into a
 folder. Let's create and move two files `file1` and `file2` into the
 folder `my_first_folder`.
 
-    $ touch file1 file2 
-    $ mv file1 file2 my_first_folder 
+```
+$ touch file1 file2 
+$ mv file1 file2 my_first_folder
+```
 
 At this point we can introduce another handy feature most shells offer
 which is called *globbing*. Let us assume you want to apply the same
@@ -330,9 +396,11 @@ different wildcards that can be used for these patterns. The most
 important one is the asterisk (`*`). It can replace none, one or more
 characters. Let us explore this with a small example:
 
-    $ touch file1.txt file2.txt file3
-    $ ls *txt
-    $ mv *txt my_first_folder
+```
+$ touch file1.txt file2.txt file3
+$ ls *txt
+$ mv *txt my_first_folder
+```
 
 The `ls` shows the two files matching the given pattern
 (i.e. `file1.txt` and `file2.txt`) while dismissing the one not
@@ -346,11 +414,15 @@ bin if you remove items this way. They will be gone for good and without further
 
 To delete a file in `my_first_folder` call:
 
-    $ rm my_first_folder/file1.txt
+```
+$ rm my_first_folder/file1.txt
+```
 
 To remove a folder use the parameter `-r` (*recursive*):
 
-    $ rm -r my_first_folder
+```
+$ rm -r my_first_folder
+```
 
 # File content - part 1
 
@@ -366,7 +438,9 @@ Topics:
 Until now we did not care about the content of the files. This will
 change now. Please go into the folder `unix_course_files`:
 
-    $ cd unix_course_files
+```
+$ cd unix_course_files
+```
 
 There should be some files waiting for you. To read the content with
 the possibility to scroll around we need a so called pager
@@ -375,7 +449,9 @@ have very similar functionalities ("more or less are more or less the
 same"). We will use the later one here. Let's open the file
 `origin_of_species.txt`
 
-    $ less origin_of_species.txt
+```
+$ less origin_of_species.txt
+```
 
 The file contains Charles Darwin's *Origin of species* in plain
 text. You can scroll up and down line-wise using the arrow keys or page-wise
@@ -387,12 +463,16 @@ or more files. Let us use it to see what is in the example file
 `two_lines.txt`. Assuming you are in the folder `unix_course_files`
 you can call
 
-    $ cat two_lines.txt
+```
+$ cat two_lines.txt
+```
 
 The content of the file is shown to you. You can apply the command to
 two files and the content is concatenated and returned:
 
-    $ cat two_lines.txt three_lines.txt
+```
+$ cat two_lines.txt three_lines.txt
+```
 
 This is a good time to introduce the *standard input* and *standard
 output* and what you can do with it. Above I wrote the output is given
@@ -401,34 +481,46 @@ output*. You can redirect the *standard output* into a file by using
 `>`. Let us use the call above to generate a new file that contains
 the combined content of both files:
 
-    $ cat two_lines.txt three_lines.txt > five_lines.txt
+```
+$ cat two_lines.txt three_lines.txt > five_lines.txt
+```
 
 Please have a look at the content of this file:
 
-    $ cat five_lines.txt
+```
+$ cat five_lines.txt
+```
 
 The *standard output* can also be redirected to other tools as
 *standard input*. More about this below. With `cat` we can reuse the
 existing file content. To create something new we use the command
 `echo` which writes a given string to the standard output.
 
-    $ echo "Something very creative"
+```
+$ echo "Something very creative"
+```
 
 To redirect the output into a target file use `>`.
 
-    $ echo "Something very creative." > creative.txt
+```
+$ echo "Something very creative." > creative.txt
+```
 
 Be aware that this can be dangerous. You will overwrite the content of an
 existing file. For example if you call now
 
-    $ echo "Something very uncreative." > creative.txt
+```
+$ echo "Something very uncreative." > creative.txt
+```
 
 there will be only the latest string written to the file and the
 previous one will be overwritten. To append the output of a command to a
 file without overwriting the content use `>>`.
 
-    $ echo "Something very creative." > creative.txt
-    $ echo "Something very uncreative." >> creative.txt
+```
+$ echo "Something very creative." > creative.txt
+$ echo "Something very uncreative." >> creative.txt
+```
 
 Now `creative.txt` should contain two lines.
 
@@ -439,21 +531,27 @@ be used. Per default 10 lines are shown. You can use the parameter `-n
 number of lines to be displayed. Test the tools with the file
 `origin_of_species.txt`:
 
-    $ head origin_of_species.txt
-    $ tail origin_of_species.txt
+```
+$ head origin_of_species.txt
+$ tail origin_of_species.txt
+```
 
 You cannot only select vertically but also horizontally using the
 command `cut`. Let us extract only the first 10 characters of each line
 in the file `origin_of_species.txt`:
 
-    $ cut -c 1-10 origin_of_species.txt
+```
+$ cut -c 1-10 origin_of_species.txt
+```
 
 The tool `cut` can be very useful to extract certain columns from CSV
 files (*comma/character separated values*). Have a look at the content of the
 file `genes.csv`. You see that it contains different columns that are
 tabular-separated. You can extract selected columns with `cut`:
 
-    $ cut -f 1,4 genes.csv
+```
+$ cut -f 1,4 genes.csv
+```
 
 # File content - part 2
 
@@ -472,14 +570,18 @@ statistics about the number of character, words and lines use the
 command `wc`. Let us count the number of lines in the file
 `origin_of_species.txt`:
 
-    $ wc -l origin_of_species.txt
+```
+$ wc -l origin_of_species.txt
+```
 
 You can use the command `sort` to sort a file alpha-numerically. Test
 the following calls
 
-    $ sort unsorted_numbers.txt
-    $ sort -n unsorted_numbers.txt
-    $ sort -rn unsorted_numbers.txt
+```
+$ sort unsorted_numbers.txt
+$ sort -n unsorted_numbers.txt
+$ sort -rn unsorted_numbers.txt
+```
 
 and try to understand the output.
 
@@ -487,40 +589,54 @@ The tool `uniq` takes a sorted list of lines and removes line-wise the
 redundancy. Please have a look at the content of the file
 `redundant.txt`. Then use `uniq` to generate a non-redundant list:
 
-    $ uniq redundant.txt
+```
+$ uniq redundant.txt
+```
 
 If you call `uniq` with `-c` you get the number of occurrence for each
 remaining entry:
 
-    $ uniq -c redundant.txt
+```
+$ uniq -c redundant.txt
+```
 
 With the tool `grep` you can extract lines that match a given
 pattern. For instance, if you want to find all lines in
 `origin_of_species.txt` that contain the word `species` call
 
-    $ grep species origin_of_species.txt
+```
+$ grep species origin_of_species.txt
+```
 
 As you can see we only get the lines that contain `species` but not
 the ones that contain `Species`. To make the search case-insensitive
 use the parameter `-i`.
 
-    $ grep -i species origin_of_species.txt
+```
+$ grep -i species origin_of_species.txt
+```
 
 If you are only interested in the number of lines that match the pattern
 use `-c`:
 
-    $ grep -ic species origin_of_species.txt
+```
+$ grep -ic species origin_of_species.txt
+```
 
 The program `tr` (*translate*) exchanges one character by another. It
 reads from the *standard input* and performs the replacement. To direct
 the content of a file as *standard input* into a program `<` is
 applied. Have a quick look at the content of the file `DNA.txt`.
 
-    $ cat DNA.txt
+```
+$ cat DNA.txt
+```
 
 We now want to replace all `T`s in the file by `U`s. For this we call:
-   
-    $ tr T U < DNA.txt
+
+```
+$ tr T U < DNA.txt
+```
 
 # Connecting tools
 
@@ -535,9 +651,11 @@ vertical bar `|` is used. For example, in order to extract the first
 and finally replace the `w`s by `m`s call (Please write this in one line
 in the shell and remove the `\`):
 
-    $ head -n 1000 origin_of_species.txt | grep species \ 
-      | grep wild | tr w m
-   
+```
+$ head -n 1000 origin_of_species.txt | grep species \ 
+  | grep wild | tr w m
+```
+
 # Examples analysis
 
 Equipped with a fine selection of useful programs and basic
@@ -552,15 +670,19 @@ download the fasta file of the *Salmonella* Thyphimuirum SL1344
 chromosome by calling (in this document the URL is split into three
 lines. Please write it in one line in the shell and remove the `\`).
 
-    wget ftp://ftp.ncbi.nih.gov/genomes/archive/old_refseq/Bacteria/\
-    	 Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
-	     NC_016810.fna
+```
+wget ftp://ftp.ncbi.nih.gov/genomes/archive/old_refseq/Bacteria/\
+   Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
+   NC_016810.fna
+```
 
 Additionally, we download the annotation in GFF format of the same replicon:
 
-    wget ftp://ftp.ncbi.nih.gov/genomes/archive/old_refseq/Bacteria/\
-    	 Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
-	     NC_016810.gff
+```
+wget ftp://ftp.ncbi.nih.gov/genomes/archive/old_refseq/Bacteria/\
+    Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
+    NC_016810.gff
+```   
 
 ## Counting the number of features
 
@@ -571,25 +693,33 @@ contains the type of the entry (gene, CDS, tRNA, rRNA, etc). If we
 want to know the numbers of tRNA entries we could try to apply `grep`
 and use `-c` to count the number of matching lines.
 
-    $ grep -c tRNA NC_016810.gff
+```
+$ grep -c tRNA NC_016810.gff
+```
 
 This leads to a suspiciously large number. The issue is that the
 string `tRNA` also occurs in the attribute column (the 9th
 column). We just want to select lines with a match in the third column.
 This can be achieved by combining `cut` and `grep`. 
 
-    $ cut -f 3 NC_016810.gff | grep -c tRNA
+```
+$ cut -f 3 NC_016810.gff | grep -c tRNA
+```
 
 To get the number of entries for all other features we could just
 replace the `tRNA` e.g. by `rRNA`. But we can also get the number for
 all of them at once using this constellation:
 
-    $ grep -v "#" NC_016810.gff | cut -f 3 | sort | uniq -c
+```
+$ grep -v "#" NC_016810.gff | cut -f 3 | sort | uniq -c
+```
 
 Try to understand what we did here. You can use a similar call to
 count the number genes on the plus and minus strand:
 
-    $ cut -f 3,7 NC_016810.gff | grep gene | sort | uniq -c
+```
+$ cut -f 3,7 NC_016810.gff | grep gene | sort | uniq -c
+```
 
 ## Calculate the GC content of a genome
 
@@ -597,25 +727,31 @@ Let us assume the GC content of the genome is not known to us. We can
 use a handful of commands to calculate this quickly. We can gain the
 number of nucleotides in the following manner.
 
-    grep -v ">" NC_016810.fna | grep -o "A" | wc -l
+```
+$ grep -v ">" NC_016810.fna | grep -o "A" | wc -l
 
-    grep -v ">" NC_016810.fna | grep -o "C" | wc -l
+$ grep -v ">" NC_016810.fna | grep -o "C" | wc -l
 
-    grep -v ">" NC_016810.fna | grep -o "G" | wc -l
+$ grep -v ">" NC_016810.fna | grep -o "G" | wc -l
 
-    grep -v ">" NC_016810.fna | grep -o "T" | wc -l
+$ grep -v ">" NC_016810.fna | grep -o "T" | wc -l
+```
 
 As we only need to get the sum of As and Ts as well as Cs and Gs we
 can use an extended pattern for grep. The `|` means *or*:
 
-    grep -v ">" NC_016810.fna | grep -Eo "A|T" | wc -l
+```
+$ grep -v ">" NC_016810.fna | grep -Eo "A|T" | wc -l
 
-    grep -v ">" NC_016810.fna | grep -Eo "C|G" | wc -l
+$ grep -v ">" NC_016810.fna | grep -Eo "C|G" | wc -l
+```
 
 Once we have the number we can calculate the GC content by piping a
 formula into the calculator `bc`.
 
-    echo "scale=5; 2332503/(2332503+2545509)*100" | bc
+```
+$ echo "scale=5; 2332503/(2332503+2545509)*100" | bc
+```
 
 ## Multiple sequence alignment with `muscle`
 
@@ -627,47 +763,63 @@ family](http://rfam.xfam.org/family/GlmZ_SraJ). We choose
 [`muscle`](http://www.drive5.com/muscle/) for this purpose. Its web
 site offers compiled binaries which means we only have to download the
 containing archive via (again, please write it in one line in the
-shell and remove the `\`)
+shell and remove the `\`).
 
-    $ wget http://www.drive5.com/muscle/downloads3.8.31/\
-           muscle3.8.31_i86linux64.tar.gz
+```
+$ wget http://www.drive5.com/muscle/downloads3.8.31/\
+     muscle3.8.31_i86linux64.tar.gz
+```
 
 and extract it:
 
-    $ tar xfz muscle3.8.31_i86linux64.tar.gz
+```
+$ tar xfz muscle3.8.31_i86linux64.tar.gz
+```    
 
 As we might need this tool more often (this is purely hypothetical as
 once you shutdown the live system any data will be gone) we generate a
 folder `bin` in our home directory. This is by convention a place
 were those programs are stored.
 
-    $ mkdir bin
+```
+$ mkdir bin
+```
 
 Then we move the tool into the folder and rename it:
 
-    $ mv muscle3.8.31_i86linux64 ~/bin/muscle
+```
+$ mv muscle3.8.31_i86linux64 ~/bin/muscle
+```
 
 and clean up a little bit:
 
-    $ rm muscle3.8.31_i86linux64.tar.gz
+```
+$ rm muscle3.8.31_i86linux64.tar.gz
+```
 
 Now we download the sequences of the RNAs which we want to align
 (again, please write the URL in one line and remove the `\`).
 
-    $ wget -O RF00083.fa "http://rfam.xfam.org/family/RF00083/\
-      alignment?acc=RF00083&format=fastau&download=1"
+```
+$ wget -O RF00083.fa "http://rfam.xfam.org/family/RF00083/\
+     alignment?acc=RF00083&format=fastau&download=1"
+```
 
 Have a look at the content of the file using `less` or `cat`.
 
 If you call `muscle` without anything you will get a list of parameters. 
 
-    $ ~/bin/muscle
+```
+$ ~/bin/muscle
+```
 
 Please be aware that we have to give the path to `muscle`.
 
 We want to specify an input file using (`-in`) and an output file (`-out`):
 
-    $ ~/bin/muscle -in RF00083.fa -out RF00083_aligned.fa
+```
+$ ~/bin/muscle -in RF00083.fa -out RF00083_aligned.fa
+```
 
 Now we have the alignments stored in `RF00083_aligned.fa`.
 
@@ -677,13 +829,17 @@ One huge advantage of the Unix shell is that you can script
 actions. For example you can write the command for the multiple
 alignment into a file e.g. using `echo`:
 
-    $ echo "~/bin/muscle -in  RF00083.fa -out RF00083_aligned.fa" \
-       > run_me.sh
+```
+$ echo "~/bin/muscle -in  RF00083.fa -out RF00083_aligned.fa" \
+    > run_me.sh
+```
 
 If you want to run the command in that script you can call the script
 in the following manner:
 
-    $ bash run_me.sh
+```
+$ bash run_me.sh
+```
 
 Shell scripting offers very powerful options to program workflows. Due
 to time restriction we will not cover this here.
