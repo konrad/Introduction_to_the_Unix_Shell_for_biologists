@@ -671,17 +671,17 @@ chromosome by calling (in this document the URL is split into three
 lines. Please write it in one line in the shell and remove the `\`).
 
 ```
-wget ftp://ftp.ncbi.nih.gov/genomes/archive/old_refseq/Bacteria/\
-   Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
-   NC_016810.fna
+$ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Bacteria/\
+Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
+NC_016810.fna
 ```
 
 Additionally, we download the annotation in GFF format of the same replicon:
 
 ```
-wget ftp://ftp.ncbi.nih.gov/genomes/archive/old_refseq/Bacteria/\
-    Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
-    NC_016810.gff
+$ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Bacteria/\
+Salmonella_enterica_serovar_Typhimurium_SL1344_uid86645/\
+NC_016810.gff
 ```   
 
 ## Counting the number of features
@@ -774,7 +774,11 @@ and extract it:
 
 ```
 $ tar xfz muscle3.8.31_i86linux64.tar.gz
-```    
+```
+
+(If you happen to have an older 32 bit system use
+`muscle3.8.31_i86linux32.tar.gz` instead of
+`muscle3.8.31_i86linux64.tar.gz` in the two command above.)
 
 As we might need this tool more often (this is purely hypothetical as
 once you shutdown the live system any data will be gone) we generate a
