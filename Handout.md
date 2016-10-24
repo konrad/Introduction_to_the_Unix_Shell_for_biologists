@@ -324,7 +324,7 @@ mkdir: cannot create directory ‘my_first_folder’: File exists
 So if a command does not complain you can usually assume there was no
 error.
 
-# Manipulating files and folder
+# Manipulating files and folders
 
 Topics:
 
