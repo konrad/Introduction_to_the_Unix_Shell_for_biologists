@@ -64,34 +64,39 @@ $ make example_files
 Running a tool in the command line interface follows a simple
 pattern. At first you have to write the name of the command (if it is
 not globally installed it's precise location needs to be given - we
-will get to this later). Some programs additionally require parameters
-and arguments. Parameters usually start with a dash (`-`). The common
-pattern looks like this (`<>` indicates obligatory items, `[]`
-indicates optional items):
+will get to this later). Some programs additionally require
+parameters. While the parameters are the requirement of the program
+the actual values we give are called arguments. There are two
+different ways how to pass those arguments to a program - via keywords
+parameter (also called named keywords) or via positional parameters.
+The common pattern looks like this (`<>` indicates obligatory items,
+`[]` indicates optional items):
 
-  `<program name>` `[parameters]` `[arguments]`
+```
+<program name> [keyword parameters] [positional parameters]
+```
 
 An example is calling the program `ls` which lists the content of a
-directory. You can simply call it without any parameter 
+directory. You can simply call it without any argument
 
 ```
 $ ls
 ```
 
-or with one or more  parameters
+or with one or more keyword argument
 
 ```
 $ ls -l
 $ ls -lh
 ```
 
-or with one or more arguments
+or with one or more positional arguments
 
 ```
 $ ls test_folder
 ```
 
-or with one or more parameters and arguments
+or with one or more keyword and positional arguments
 
 ```
 $ ls -l test_folder
