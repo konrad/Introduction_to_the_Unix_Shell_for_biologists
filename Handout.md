@@ -68,9 +68,9 @@ will get to this later). Some programs additionally require
 parameters. While the parameters are the requirement of the program
 the actual values we give are called arguments. There are two
 different ways how to pass those arguments to a program - via keywords
-parameter (also called named keywords) or via positional parameters.
-The common pattern looks like this (`<>` indicates obligatory items,
-`[]` indicates optional items):
+parameter (also called named keywords, flags or options) or via
+positional parameters.  The common pattern looks like this (`<>`
+indicates obligatory items, `[]` indicates optional items):
 
 ```
 <program name> [keyword parameters] [positional parameters]
