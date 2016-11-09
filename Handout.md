@@ -566,7 +566,6 @@ Topics:
 * `sort`
 * `uniq`
 * `grep`
-* `cut`
 * `tr`
 
 There are several tools that let you manipulate the content of a plain
