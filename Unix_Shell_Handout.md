@@ -1,4 +1,4 @@
-% Introduction to the Unix shell
+% Introduction to the Unix shell for biologists
 % Konrad U. Förstner
 % 
 
