@@ -1,12 +1,22 @@
 pdf:
 	pandoc \
-	  -o Handout.pdf \
+	  -o Unix_Shell_Handout.pdf \
           --toc \
 	   --latex-engine xelatex \
 	   --variable mainfont="DejaVu Sans" \
 	   --variable sansfont="DejaVu Sans" \
 	   -V geometry:"top=2cm, bottom=2.0cm, left=2.5cm, right=2.5cm" \
-	  Handout.md
+	  Unix_Shell_Handout.md
+
+	pandoc \
+	  -o Unix_Shell_cheat_sheet.pdf \
+           --toc \
+	   --latex-engine xelatex \
+	   --variable mainfont="DejaVu Sans" \
+	   --variable sansfont="DejaVu Sans" \
+	   -V geometry:"top=2cm, bottom=2.0cm, left=2.5cm, right=2.5cm" \
+	   Unix_Shell_cheat_sheet.md
+
 
 example_files:
 	mkdir -p unix_course_files
