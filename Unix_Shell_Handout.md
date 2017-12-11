@@ -698,7 +698,7 @@ $ bash count_lines.sh
 You should get someting like
 
 ```
-Number of lines that contains species:
+Number of lines in the given file
 15322 origin_of_species.txt
 ```
 
