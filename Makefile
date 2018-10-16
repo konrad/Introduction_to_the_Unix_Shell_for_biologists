@@ -41,7 +41,7 @@ example_files:
 	echo "tRNA\ntRNA\ntRNA\nrRNA\nrRNA\nmRNA\nmRNA\nmRNA\nmRNA" \
 	  > unix_course_files/redundant.txt
 	wget -cO unix_course_files/origin_of_species.txt \
-          http://www.gutenberg.org/cache/epub/22764/pg22764.txt     
+	  https://archive.org/stream/originofspecies00darwuoft/originofspecies00darwuoft_djvu.txt
 
 new_release:
 	@echo "* Commit changes e.g. 'git commit -m \"Set version to 1.0\"'"
