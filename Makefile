@@ -2,7 +2,7 @@ pdf:
 	pandoc \
 	  -o Unix_Shell_Handout.pdf \
           --toc \
-	   --latex-engine xelatex \
+	   --pdf-engine xelatex \
 	   --variable mainfont="DejaVu Sans" \
 	   --variable sansfont="DejaVu Sans" \
 	   -V geometry:"top=2cm, bottom=2.0cm, left=2.5cm, right=2.5cm" \
@@ -11,7 +11,7 @@ pdf:
 	pandoc \
 	  -o Unix_Shell_cheat_sheet.pdf \
            --toc \
-	   --latex-engine xelatex \
+	   --pdf-engine xelatex \
 	   --variable mainfont="DejaVu Sans" \
 	   --variable sansfont="DejaVu Sans" \
 	   -V geometry:"top=2cm, bottom=2.0cm, left=2.5cm, right=2.5cm" \
